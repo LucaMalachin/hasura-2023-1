@@ -1,0 +1,43 @@
+{
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "README.md"
+            ]
+        },
+        "vscode": {
+            "extensions": [
+				"ms-azuretools.vscode-docker",
+                "ckolkman.vscode-postgres",
+				"ms-vscode.makefile-tools"
+			]
+        }
+    },
+    "forwardPorts": [8080, 8081, 9695, 9693],
+    "portsAttributes": {
+        "8081": {
+            "label": "Adminer Web Client",
+            "onAutoForward": "ignore"
+        },
+        "8080": {
+            "label": "Hasura Engine API",
+            "onAutoForward": "ignore"
+        },
+        "9695": {
+            "label": "Hasura CLI Console",
+            "onAutoForward": "openPreview"
+        },
+        "9693": {
+            "label": "Hasura CLI API",
+            "onAutoForward": "ignore"
+        },
+        "5432": {
+            "label": "Postgres",
+            "onAutoForward": "ignore"
+        }
+    },
+    "postAttachCommand": "/bin/bash .devcontainer/setup.sh",
+    "containerEnv": {
+        "DOCKER_COMPOSE_TARGET": "codespace"
+    }
+}
